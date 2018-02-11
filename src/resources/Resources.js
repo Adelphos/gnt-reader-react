@@ -3,6 +3,7 @@ import * as AppConstants from '../constants/AppConstants.js';
 import axios from 'axios';
 
 let morphology = {};
+let morphType = Account.getPreference(AppConstants.MORPH_TYPE);
 
 export function getMorphology(book, chapter) {
   function success(resolve) {
@@ -18,29 +19,13 @@ export function getMorphology(book, chapter) {
     if (morphology[book]) {
       success(resolve);
     } else {
-      const url = `/resources/morph/${Account.getPreference(AppConstants.MORPH_TYPE)}_parsed/${book}.txt`;
+      const url = `/resources/morph/${morphType}_parsed/${book}.txt`;
       axios.get(url).then((result) => {
         morphology[book] = result.data;
         success(resolve);
       });
     }
   });
-}
-
-function getChapterMorph(book, chapter) {
-  const bookMorph = morphology[book];
-  const chapters = [];
-  for (let i=0; i<bookMorph.length; i++) {
-    const refParsed = bookMorph[i][0].match(/\d\d?\d?/g);
-    const morphChapter = parseInt(refParsed[0], 10);
-    if (morphChapter < chapter) {
-      continue;
-    } else if (morphChapter > chapter) {
-      break;
-    }
-    chapters.push(bookMorph[i]);
-  }
-  return chapters;
 }
 
 export const bookShortNames = [
@@ -71,3 +56,53 @@ export const bookMediumNames = {
   "1JO" : "1John", "2JO" : "2John", "3JO" : "3John",
   "JUDE" : "Jude", "RE" : "Rev"
 };
+
+function getChapterMorph(book, chapter) {
+  const bookMorph = morphology[book];
+  const chapterMorph = [];
+  for (let i=0; i<bookMorph.length; i++) {
+    const refParsed = bookMorph[i][0].match(/\d\d?\d?/g);
+    const morphChapter = parseInt(refParsed[0], 10);
+    if (morphChapter < chapter) {
+      continue;
+    } else if (morphChapter > chapter) {
+      break;
+    }
+    chapterMorph.push(bookMorph[i]);
+  }
+  return parseChapterMorphByVerse(chapterMorph);
+}
+
+function parseChapterMorphByVerse(chapterMorph) {
+  const morphByVerse = [{
+    [AppConstants.VERSE]: 1,
+    [AppConstants.WORDS]: []
+  }];
+  let currVerse = 1;
+  let lastVerse = morphByVerse[0];
+  chapterMorph.forEach(morph => {
+    const refParsed = morph[0].match(/\d\d?\d?/g);
+    const verse = parseInt(refParsed[1], 10);
+    const word = morph.slice(1);
+
+    if (verse !== currVerse) {
+      lastVerse = {
+        [AppConstants.VERSE]: verse,
+        [AppConstants.WORDS]: [word]
+      };
+      morphByVerse.push(lastVerse);
+      currVerse = verse;
+    } else {
+      lastVerse[AppConstants.WORDS].push(word);
+    }
+  });
+  return morphByVerse;
+}
+
+
+
+
+
+
+
+

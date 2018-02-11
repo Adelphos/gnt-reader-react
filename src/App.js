@@ -8,7 +8,7 @@ import $ from 'jquery';
 import * as AppUtil from './util/AppUtil.js';
 import * as AppConstants from './constants/AppConstants.js';
 import * as Resources from './resources/Resources.js';
-// import './main.css';
+import './main.css';
 
 class App extends Component {
   constructor() {
@@ -31,8 +31,7 @@ class App extends Component {
           selectedChapter={this.state.selectedChapter} />
         <Reader
           book={this.state.selectedBook}
-          chapter={this.state.selectedChapter}
-          morph={this.state.morph} />
+          chapter={this.state.selectedChapter} />
         <Info />
       </div>
     );
@@ -58,29 +57,9 @@ class App extends Component {
       selectedBook: passage.book,
       selectedChapter: passage.chapter
     });
-    Resources
-      .getMorphology(
-        passage[AppConstants.BOOK],
-        passage[AppConstants.CHAPTER]
-      )
-      .then(morph => {
-        this.setState({
-          morph: morph
-        });
-      });
   }
 
   componentDidMount() {
-    Resources
-      .getMorphology(
-        this.state.selectedBook,
-        this.state.selectedChapter
-      )
-      .then(morph => {
-        this.setState({
-          morph: morph
-        });
-      });
     // Scrolling
     // TODO: include when apputil is sorted out
     $(window).on("scroll", this.onWindowResize);
