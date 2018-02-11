@@ -1,0 +1,26 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.overlay-app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  background-color: rgba(242, 242, 242, 0.94);
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 500ms ease, bottom 0ms ease 500ms, padding 0ms ease 500ms;
+  -moz-transition: opacity 500ms ease, bottom 0ms ease 500ms, padding 0ms ease 500ms;
+  -webkit-transition: opacity 500ms ease, bottom 0ms ease 500ms, padding 0ms ease 500ms;
+  -ms-transition: opacity 500ms ease, bottom 0ms ease 500ms, padding 0ms ease 500ms;
+}
+
+.overlay-app.show {
+  display: block;
+  padding: 100px 50px 0;
+  bottom: 0;
+  opacity: 1;
+}

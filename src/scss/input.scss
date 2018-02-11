@@ -1,0 +1,16 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+input[type="text"]{
+  border: 1px solid $input-border;
+  border-radius: 4px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: $input-height;
+  width: 100%;
+  color: $dark-1;
+  font-size: 13px;
+  padding: 0 8px;
+  box-shadow: inset 0px 2px 2px -1px rgba(125,125,125,0.2);
+  vertical-align: middle;
+}

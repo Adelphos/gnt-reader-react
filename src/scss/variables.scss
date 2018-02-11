@@ -1,0 +1,40 @@
+// colors
+$dark-1: #222;
+$dark-2: #89949c;
+$dark-3: #666;
+$dark-4: #aaa;
+$blue-1: #66c4ef;
+$blue-bg: #D2EAF5;
+$text-main: $dark-1;
+$text-dark-medium: #444;
+$app-active: $blue-1;
+$app-bg: #f2f2f2;
+
+// app sizing
+$max-app-width: 1500px;
+
+// breakpoints
+$breakpoint-tablet: 800px;
+$breakpoint-desktop: 1200px;
+
+// borders
+$border-light: #c8cdd1;
+$border-input: $border-light;
+
+// inputs
+$input-border: $dark-2;
+$input-color: $dark-3;
+$input-height: 25px;
+
+$label-color: $dark-3;
+
+// fonts
+$sans: Helvetica, Arial, Sans-Serif;
+$serif: "Times New Roman", Georgia, Serif;
+$fontWeightRegular: 500;
+$fontWeightBold: 800;
+
+$border-radius: 3px;
+
+// buttons
+$button-color: $blue-1;

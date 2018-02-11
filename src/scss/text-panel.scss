@@ -1,0 +1,116 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.text {
+  margin: 60px auto 3em;
+  padding: 0 15px;
+  font-size: 18px;
+  line-height: 24px;
+  position: relative; // Necessary for interaction with panel elements
+
+  @media (min-width: $breakpoint-tablet) {
+    margin: 60px auto 200px;
+    padding: 0 30px;
+    width: 65%;
+    font-size: 14px;
+    line-height: 20px;
+    box-sizing: border-box;
+
+    body.info-panel-show & {
+      margin-left: 5%;
+    }
+
+    body.nav-panel-open &,
+    body.search-panel-show & {
+      margin-left: 30%;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    max-width: $max-app-width * 0.4;
+
+    &,
+    body.info-panel-show &,
+    body.nav-panel-open &,
+    body.search-panel-show & {
+      margin-left: auto;
+      padding: 0 30px;
+      width: 40%;
+    }
+  }
+
+  .verse {
+    .verse-number {
+      cursor: pointer;
+      padding-right: 4px;
+
+      &.selected {
+        color: $blue-1;
+      }
+    }
+  }
+}
+
+.welcome-text {
+  margin-top: 6em;
+  text-align: center;
+}
+
+body.info-panel-show .text {
+  margin-bottom: 10em;
+}
+
+.loading-text {
+  margin-top: 120px;
+  text-align: center;
+  color: #aaa;
+}
+
+.loading {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  height: 6px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #c4c9cd;
+  background-color: #fefefe;
+  box-shadow: inset 1px 0px 2px 0 rgba(0,0,0,0.2);
+  border-radius: 30px;
+}
+
+.loading .bar {
+  position: absolute;
+  left: 0;
+  border-radius: 30px;
+  top: 0;
+  bottom: 0;
+  background-color: #458ef3;
+}
+
+.text-chapter {
+  margin-top: 2em;
+  overflow: hidden; /* prevents selection highlight from overflowing left and right */
+}
+
+.chapter-header {
+  font-size: 2em;
+  float: left;
+  line-height: 10px;
+  vertical-align: top;
+  padding: 0.4em 0.4em 0.4em 0;
+}
+
+i {
+  font-style: normal;
+  position: relative;
+  cursor: pointer;
+  /* padding: 3px; */
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+.clicked {
+  color: $blue-1;
+  font-weight: bold;
+}

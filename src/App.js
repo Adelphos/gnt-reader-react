@@ -8,7 +8,7 @@ import $ from 'jquery';
 import * as AppUtil from './util/AppUtil.js';
 import * as AppConstants from './constants/AppConstants.js';
 import * as Resources from './resources/Resources.js';
-import './main.css';
+import './App.css';
 
 class App extends Component {
   constructor() {

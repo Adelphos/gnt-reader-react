@@ -1,0 +1,10 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.link {
+	text-decoration: none;
+
+	&.-blue {
+		@include linkColor($blue-1, $dark-3);
+	}
+}

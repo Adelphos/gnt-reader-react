@@ -1,0 +1,24 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+:hover {
+  > .tooltip {
+    display: block;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: none;
+  font-size: 11px;
+  color: #ffffff;
+  background-color: $dark-1;
+}

@@ -1,0 +1,39 @@
+@import 'variables.scss';
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+@mixin linkColor($color, $color-hover: $color) {
+	&,
+	&:active,
+	&:visited {
+		color: $color;
+	}
+
+	&:hover {
+		color: $color-hover;
+	}
+}
+
+@mixin parentheses() {
+  &:before {
+    content: '(';
+  }
+
+  &:after {
+    content: ')';
+  }
+}

@@ -1,0 +1,148 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+nav.header-icons {
+  position: fixed;
+  top: 4px;
+  left: 0;
+  z-index: 10;
+
+  @media (min-width: $breakpoint-desktop) {
+    left: 10%;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      padding: 0;
+
+      i {
+        vertical-align: middle;
+      }
+    }
+
+    // Search
+    .search-icon-wrapper {
+      position: fixed;
+      top: -4px;
+      right: 0px;
+      z-index: 3;
+
+      @media (min-width: $breakpoint-tablet) {
+        position: relative;
+      }
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 0;
+      left: 5px;
+
+      @media (min-width: $breakpoint-tablet) {
+        position: relative;
+
+        // &:before {
+        //   content: '';
+        //   position: absolute;
+        //   display: block;
+        //   top: 23px;
+        //   right: -4px;
+        //   width: 2px;
+        //   height: 2px;
+        //   border-radius: 4px;
+        //   background: $dark-4;
+        // }
+      }
+    }
+  }
+}
+
+.nav-panel {
+  display: block;
+  padding-top: 20px;
+  font-size: 1.8em;
+  line-height: 1.8;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1.2em;
+  }
+
+  &.show {
+    display: block;
+  }
+
+  .nav-entry {
+    padding: 0 30px 0 70px;
+    max-width: 330px;
+
+    &.opened {
+
+      > a {
+        color: #66c4ef;@import 'variables.scss';
+
+
+        font-weight: 700;
+        position: relative;
+
+        @media (min-width: $breakpoint-tablet) {
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -15px;
+            top: 0.5em;
+            width: 5px;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #66c4ef;
+          }
+        }
+      }
+
+      .book-chapters {
+        opacity: 1;
+        height: auto;
+        margin-bottom: 0.75em;
+        /*   transition: opacity 300ms ease 300ms, max-height 300ms linear; */
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: 0 24% 0 30%;
+    }
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Georgia, Serif;
+
+    @media (min-width: $breakpoint-tablet) {
+      color: #222;
+    }
+  }
+
+  .book-chapters {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  /*   transition: opacity 300ms ease, max-height 300ms linear; */
+  }
+
+  .book {
+    white-space: nowrap;
+  }
+
+  .chapter {
+    margin-right: 0.3em;
+
+    &.selected {
+      color: #66c4ef;
+      font-weight: 700;
+    }
+  }
+}

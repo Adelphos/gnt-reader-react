@@ -1,0 +1,151 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+// SVG Icons
+.app-icon {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+
+  @media (min-width: $breakpoint-tablet) {
+    height: 12px;
+    width: 12px;
+  }
+}
+
+.caret-down {
+  height: 9px;
+  width: 9px;
+}
+
+
+.css-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  position: relative;
+}
+  .css-icon.-down-arrow:before,
+  .css-icon.-down-arrow:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    border-radius: 4px;
+    left: 0;
+    right: 50%;
+    top: 60%;
+    background-color: currentColor;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    transform: rotate(40deg);
+    margin: 0 -3px 0 0;
+  }
+  .css-icon.-down-arrow:after {
+    right: 0;
+    left: 50%;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+    margin: 0 0 0 -3px;
+  }
+
+
+
+/* Menu icon */
+.menu-icon {
+  padding: 15px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 3;
+  border-bottom-right-radius: 5px;
+  position: relative;
+
+  .icon-bar {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #444;
+
+    &:nth-child(2) {
+      top: 21px;
+    }
+
+    &:nth-child(3) {
+      top: 27px;
+    }
+
+    &:nth-child(4) {
+      top: 33px;
+      right: 27px;
+    }
+  }
+
+  &:hover {
+   .icon-bar {
+      background-color: $dark-4;
+    }
+  }
+
+  &.opened  {
+    .icon-bar {
+      background-color: $app-active;
+    }
+  }
+}
+
+.search-icon-wrapper {
+  padding: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-search {
+  display: inline-block;
+  height: 23px;
+  width: 23px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 2px solid #444;
+  border-radius: 100%;
+  position: relative;
+  transform: rotate(45deg);
+  transition: border-color 150ms ease;
+}
+.icon-search:before {
+  content: '';
+  height: 2px;
+  width: 12px;
+  border-radius: 3px;
+  background-color: #444;
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -1px;
+  left: 100%;
+  transition: background-color 150ms ease;
+}
+:hover > .icon-search {
+  border-color: $dark-4;
+}
+:hover > .icon-search:before {
+  background-color: $dark-4;
+}
+.open > .icon-search {
+  border-color: $blue-1;
+}
+.open > .icon-search:before {
+  background-color: $blue-1;
+}

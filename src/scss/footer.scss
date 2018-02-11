@@ -1,0 +1,15 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.text-copyright {
+  color: #999;
+  margin-top: 6em;
+
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: 6em;
+  }
+}
+
+.text-copyright a {
+  color: #555;
+}

@@ -1,0 +1,43 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.browse-panel {
+  display: none; // hidden by default
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 3em 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 1em;
+  line-height: 32px;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba(22,22,22,0.97);
+  z-index: 2;
+
+  body.nav-panel-open &,
+  body.search-panel-show & {
+    display: block;
+  }
+
+  body.search-panel-show & {
+    background-color: $app-bg;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    display: block;
+    position: absolute;
+    right: auto;
+    top: 60px;
+    bottom: 0;
+    width: 30%;
+    left: 0;
+    max-width: $max-app-width * 0.3;
+    padding: 0 0 80px;
+    font-size: 0.75em;
+    line-height: 1.7em;
+    background-color: transparent;
+  }
+}

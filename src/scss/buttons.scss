@@ -1,0 +1,32 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+button,
+.button {
+  background: none;
+  border: 1px solid $button-color;
+  border-radius: $border-radius;
+  text-transform: capitalize;
+  color: $button-color;
+  font-family: $sans;
+  line-height: 36px;
+  font-weight: bold;
+  padding: 0 0.6em;
+
+  &.-link {
+    color: $dark-3;
+    border-color: transparent;
+    border-left: none;
+    border-right: none;
+    padding: 0;
+  }
+
+  &.-gray {
+    color: $dark-4;
+    border-color: $dark-4;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    line-height: 22px;
+  }
+}

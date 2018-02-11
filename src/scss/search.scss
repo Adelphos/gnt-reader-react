@@ -1,0 +1,439 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.search-panel {
+  padding: 0 30px;
+  font-family: $sans;
+  color: $dark-2;
+  display: none; // hidden by default
+
+  &.show {
+    display: block;
+  }
+
+  .search-wrapper {
+    display: none; // hidden by default;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .search-history-controls {
+    display: none; // hidden by default;
+    text-align: center;
+
+    @media (min-width: $breakpoint-tablet) {
+      text-align: left;
+    }
+
+    &.show {
+      display: block;
+    }
+
+    .prev,
+    .next {
+      @include linkColor($dark-2, $dark-1);
+
+      &:not(.show) {
+        opacity: 0.3;
+        cursor: not-allowed;
+        &:hover {
+          color: $dark-2;
+        }
+      }
+
+      .app-icon {
+        height: 20px;
+        width: 20px;
+
+        @media (min-width: $breakpoint-tablet) {
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
+
+
+    .prev {
+      margin-right: 0.5em;
+    }
+
+    .next {
+    }
+  }
+
+  .search-input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0 auto;
+    display: none;
+    padding-top: 30px;
+
+    &.show {
+      display: block;
+    }
+
+    .search-input-header {
+
+    }
+
+    .range-select {
+      border: 1px solid $border-light;
+      background-color: #ffffff;
+      border-radius: $border-radius;
+      margin: 0 auto 30px;
+      max-width: 310px;
+
+      .range-select-dropdown {
+        display: block;
+        height: 30px;
+        border: none;
+
+        &.custom {
+          + .range-select-form {
+            display: block;
+            border-top: 1px solid $border-light;
+          }
+        }
+      }
+
+      .range-select-form {
+        display: none; // hidden by default
+        padding: 20px;
+
+        // TODO: find better spot
+        input[type="checkbox"].range-book-check {
+          display: none;
+        }
+
+        input[type="checkbox"].range-book-check:checked + label {
+          color: $blue-1;
+          background-color: transparent;
+          border: 1px solid $blue-1;
+        }
+
+        label.range-book-check {
+          $size: 40px;
+          font-size: 0.8em;
+          font-weight: bold;
+          width: $size;
+          height: $size;
+          display: inline-block;
+          background-color: #ececec;
+          border: 1px solid transparent;
+          line-height: $size;
+          text-align: center;
+          border-radius: 4px;
+          color: $text-dark-medium;
+          cursor: pointer;
+          margin: 0 5px 5px 0;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          webkit-user-select: none;
+        }
+
+      }
+    }
+
+    .search-input-container {
+      max-width: 310px;
+      margin: 0 auto;
+
+      h4 {
+        color: $dark-3;
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: $fontWeightBold;
+        font-size: 0.8em;
+      }
+    }
+
+    .search-input-wrapper {
+      border: 1px solid $border-input;
+      border-radius: $border-radius;
+      overflow: hidden;
+
+      .search-word-input-wrapper {
+        padding: 20px;
+        border-bottom: 1px solid $border-input;
+
+        .search-word-type {
+          display: inline-block;
+          width: 38%;
+          height: 25px;
+          background: white;
+          border: 1px solid gray;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          border-right: none;
+          border-radius: 3px 0 0 3px;
+          line-height: $input-height - 2;
+          vertical-align: middle;
+
+          .search-type-select {
+            width: 100%;
+            background: none;
+            border-radius: 0;
+            outline: none;
+            border: none;
+            color: $dark-3;
+          }
+        }
+
+        .search-word-input {
+          border-radius: 0 $border-radius $border-radius 0;
+          width: 62%;
+        }
+
+        .range-type-tip {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .submit-wrapper {
+      margin: 30px auto;
+      text-align: center;
+      max-width: 310px;
+
+      .search-submit {
+        width: 100%;
+      }
+
+      @media (min-width: $breakpoint-tablet) {
+        text-align: right;
+
+        .search-submit {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .search-summary {
+    display: none;
+    color: $dark-1;
+    font-family: $serif;
+    font-weight: $fontWeightRegular;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 10px;
+
+    > :not(:last-child):not(h2) {
+      margin-bottom: 17px;
+    }
+
+    // &:after {
+    //   content: '';
+    //   display: block;
+    //   background-color: $border-light;
+    //   height: 1px;
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 0;
+    //   width: 113px;
+    // }
+
+    .search-summary-header {
+      font-size: 0.9em;
+      color: $dark-3;
+      text-transform: uppercase;
+      font-weight: $fontWeightRegular;
+    }
+
+    &.show {
+      display: block;
+    }
+
+    .search-actions {
+      @include clearfix();
+
+      > .show + * {
+        margin-left: 10px;
+      }
+
+      .search-summary-edit {
+        float: left;
+        display: none;
+
+        &.show {
+          display: block;
+        }
+      }
+
+      .search-summary-new {
+        float: left;
+      }
+    }
+
+    .range-summary {
+      margin-bottom: 15px;
+
+      .range-summary-header {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .range-summary-book {
+
+      }
+    }
+
+
+    .entry-name {
+      font-size: 1.4em;
+    }
+
+    .entry-type {
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    .entry-morph {
+      font-size: 1.2em;
+      font-style: italic;
+      text-transform: capitalize;
+      display: inline-block;
+    }
+  }
+
+  .search-results-wrapper {
+    display: none; // hidden by default
+    position: relative;
+
+    &.show {
+      display: block;
+    }
+
+    .search-results-header {
+      font-size: 0.9em;
+      color: $dark-3;
+      text-transform: uppercase;
+      font-family: $serif;
+      font-weight: $fontWeightRegular;
+
+      // .clear-results {
+      //   float: right;
+      // }
+    }
+
+    .search-results-content {
+
+      .search-result {
+        color: $dark-3;
+        font-size: 1.1em;
+
+        .verse-reference {
+          color: $dark-1;
+          display: inline-block;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 0.9em;
+          margin: 0.5em 0 0em;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .highlight {
+          color: $dark-1;
+          font-weight: bold;
+        }
+
+        .verse {
+          margin-bottom: 10px;
+
+          .verse-number {
+            color: $dark-1;
+          }
+        }
+      }
+    }
+
+    .more-wrapper {
+      .more {
+        display: none;
+        margin-top: 30px;
+
+        &.show {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.parsing-input-wrapper {
+  background-color: #fff;
+  padding: 20px;
+
+  .parsing-input-row {
+    margin: 5px 0;
+    @include clearfix();
+    position: relative;
+  }
+
+  .parsing-input-label {
+    color: $label-color;
+  }
+
+  .parsing-dropdown-wrapper {
+    position: absolute;
+    left: 65px;
+    right: 0;
+    top: 0;
+
+    .parsing-input {
+      width: 100%;
+      background: none;
+      color: $input-color;
+      height: 1.5em;
+      line-height: 1.5em;
+      border-radius: $border-radius;
+    }
+  }
+
+  // Noun and Adjective
+  // &[data-type="type-N-"],
+  // &[data-type="type-A-"] {
+  //   .person,
+  //   .tense,
+  //   .voice,
+  //   .mood,
+  //   .extra {
+  //     display: none;
+  //   }
+  // }
+
+  // // Conjunction
+  // &[data-type="type-C-"] {
+  //   .person,
+  //   .tense,
+  //   .voice,
+  //   .mood,
+  //   .case,
+  //   .number,
+  //   .gender,
+  //   .extra {
+  //     display: none;
+  //   }
+  // }
+
+  // // Verb, non-participle
+  // &[data-type="type-V-"] {
+  //   &[data-mood="mood-D"],
+  //   &[data-mood="mood-I"],
+  //   &[data-mood="mood-N"],
+  //   &[data-mood="mood-O"],
+  //   &[data-mood="mood-S"] {
+  //     .case,
+  //     .gender {
+  //       display: none;
+  //     }
+  //   }
+  // }
+}
