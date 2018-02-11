@@ -57,6 +57,17 @@ export const bookMediumNames = {
   "JUDE" : "Jude", "RE" : "Rev"
 };
 
+export const bookLongNames = {
+  "MT": 'Matthew', "MR": 'Mark', "LU": 'Luke', "JOH": 'John', "AC": 'Acts',
+  "RO": 'Romans', "1CO": '1Corinthians', "2CO": '2Corinthians',
+  "GA": 'Galatians', "EPH": 'Ephesians', "PHP": 'Philippians',
+  "COL": 'Colossians', "1TH": '1Thessalonians', "2TH": '2Thessalonians',
+  "1TI": '1Timothy', "2TI": '2Timothy', "TIT": 'Titus', "PHM": 'Philemon',
+  "HEB": 'Hebrews', "JAS": 'James', "1PE": '1Peter', "2PE": '2Peter',
+  "1JO": '1John', "2JO": '2John', "3JO": '3John',
+  "JUDE": 'Jude', "RE": 'Revelation'
+};
+
 function getChapterMorph(book, chapter) {
   const bookMorph = morphology[book];
   const chapterMorph = [];

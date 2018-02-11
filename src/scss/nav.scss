@@ -66,9 +66,10 @@ nav.header-icons {
   padding-top: 20px;
   font-size: 1.8em;
   line-height: 1.8;
+  width: 30%;
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
   &.show {
@@ -82,7 +83,7 @@ nav.header-icons {
     &.opened {
 
       > a {
-        color: #66c4ef;@import 'variables.scss';
+        color: #66c4ef;
 
 
         font-weight: 700;

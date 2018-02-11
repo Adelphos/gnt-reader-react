@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import * as AppConstants from '../constants/AppConstants.js';
 import Loader from '../loader/Loader.js';
 import * as Resources from '../resources/Resources.js';
+import './Reader.css';
 
 function Word(props) {
-  return <span data-lex={props.lex} data-morph={props.morph}>{props.form}</span>;
+  return <span className="word" data-lex={props.lex} data-morph={props.morph}>{props.form}</span>;
 }
 
 function Verse(props) {
@@ -12,7 +13,7 @@ function Verse(props) {
     .map(word => <Word form={word[0]} lex={word[2]} morph={word[1]} />);
   return (
     <div className="verse">
-      <span className="verse-num">{props[AppConstants.VERSE]}</span>
+      <span className="verse-number">{props[AppConstants.VERSE]}</span>
       {words}
     </div>
   );
@@ -56,10 +57,9 @@ class Reader extends Component {
       });
     }
     return (
-      <section>
-        {this.state[AppConstants.BOOK]}
-        {this.state[AppConstants.CHAPTER]}
+      <section className="reader">
         <Loader remove={this.state[AppConstants.MORPH]} />
+        <span class="chapter-header">{this.props[AppConstants.CHAPTER]}</span>
         {passage}
       </section>
     );

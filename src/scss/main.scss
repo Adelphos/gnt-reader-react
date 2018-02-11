@@ -1,6 +1,10 @@
 @import 'variables.scss';
 @import 'mixins.scss';
 
+html, body {
+  font-size: 1em;
+}
+
 body {
  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

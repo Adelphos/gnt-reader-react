@@ -1,0 +1,13 @@
+@import './scss/variables.scss';
+
+.nav-entry {
+  cursor: pointer;
+
+  .book-chapters {
+    .chapter {
+      display: inline-block;
+      margin-right: 0.5em;
+      cursor: pointer;
+    }
+  }
+}

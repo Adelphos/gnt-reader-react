@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as Resources from '../resources/Resources.js';
 import * as AppConstants from '../constants/AppConstants.js';
+import './Browse.css';
 
 class Browse extends Component {
   constructor(props) {
@@ -19,11 +20,12 @@ class Browse extends Component {
       <Book
         selected={this.state.selectedBook === book}
         bookShortName={book}
-        name={Resources.bookMediumNames[book]}
+        name={Resources.bookLongNames[book]}
         chapterCount={Resources.chapterCounts[book]}
         key={book}
         handleClickBook={this.onClickBook}
-        handleClickChapter={this.onClickChapter} />
+        handleClickChapter={this.onClickChapter}
+        selectedChapter={this.state.selectedChapter} />
     ));
 
     return (
@@ -61,7 +63,10 @@ function Book(props) {
   if (props.selected) {
     chapters = (
       <div className="book-chapters">
-        <Chapters count={props.chapterCount} handleClick={props.handleClickChapter} />
+        <Chapters
+          count={props.chapterCount}
+          handleClick={props.handleClickChapter}
+          selected={props.selectedChapter} />
       </div>
     );
   }
@@ -82,7 +87,7 @@ function Chapters(props) {
   }
   return chapters.map(num => (
     <a
-       className="chapter"
+       className={`${props.selected === num ? 'selected ' : ''}chapter`}
        data-value={num}
        key={num}
        onClick={props.handleClick}>

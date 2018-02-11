@@ -23,8 +23,10 @@ class App extends Component {
 
   render(props) {
     return (
-      <div className="App">
-        <Header />
+      <div className="App main-container">
+        <Header
+          selectedBook={this.state.selectedBook}
+          selectedChapter={this.state.selectedChapter} />
         <Browse
           onBrowsePassage={this.onBrowsePassage}
           selectedBook={this.state.selectedBook}

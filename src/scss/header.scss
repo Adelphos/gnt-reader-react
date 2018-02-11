@@ -13,6 +13,8 @@
   padding: 10px 0;
   background-color: $app-bg;
   z-index: 3;
+  box-sizing: border-box;
+  height: $header-height;
 
   body.nav-panel-open & {
     display: none;
@@ -145,7 +147,7 @@
   }
 
   @media (min-width: $breakpoint-tablet) {
-    width: 70%;
+    // width: 70%;
     margin: 0 auto;
     padding: 1em 0 0.75em;
 
@@ -184,7 +186,7 @@
   }
 
   @media (min-width: $breakpoint-desktop) {
-    width: 40%;
+    // width: 40%;
 
     body.nav-panel-open &,
     body.search-panel-show & {

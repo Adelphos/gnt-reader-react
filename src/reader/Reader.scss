@@ -1,0 +1,20 @@
+@import './scss/variables.scss';
+
+.reader {
+  max-width: 600px;
+  line-height: 1.4em;
+
+  .verse {
+    font-size: $font-size-reader;
+
+    .verse-number {
+      font-weight: $fontWeightBold;
+      margin-right: 0.5em;
+    }
+
+    .word {
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+  }
+}

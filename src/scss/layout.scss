@@ -20,3 +20,17 @@
     position: relative;
   }
 }
+
+.main-container {
+  display: flex;
+  margin-top: $header-height;
+
+  .reader {
+
+  }
+
+  .info {
+    // Until panel is implemented
+    display: none;
+  }
+}

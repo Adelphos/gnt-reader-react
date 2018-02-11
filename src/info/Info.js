@@ -10,7 +10,7 @@ class Info extends Component {
 
   render() {
     return (
-      <section>[Info panel] {this.state.selectedWord}</section>
+      <section className="info">[Info panel] {this.state.selectedWord}</section>
     );
   }
 };
