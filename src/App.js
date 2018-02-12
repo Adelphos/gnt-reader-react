@@ -3,8 +3,6 @@ import Header from './menu/Header.js';
 import Browse from './menu/Browse.js';
 import Reader from './reader/Reader.js';
 import Info from './info/Info.js';
-import $ from 'jquery';
-import * as AppUtil from './util/AppUtil.js';
 import './App.css';
 
 class App extends Component {
