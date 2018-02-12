@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Greek New Testament Reader",
+  "name": "A reader for the Greek New Testament",
   "icons": [
     {
       "src": "favicon.ico",

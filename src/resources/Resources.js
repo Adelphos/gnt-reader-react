@@ -19,7 +19,7 @@ export function getMorphology(book, chapter) {
     if (morphology[book]) {
       success(resolve);
     } else {
-      const url = `/resources/morph/${morphType}_parsed/${book}.txt`;
+      const url = `resources/morph/${morphType}_parsed/${book}.txt`;
       axios.get(url).then((result) => {
         morphology[book] = result.data;
         success(resolve);
