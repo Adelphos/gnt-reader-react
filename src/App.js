@@ -13,6 +13,7 @@ class App extends Component {
       selectedChapter: 1
     };
     this.onBrowsePassage = this.onBrowsePassage.bind(this);
+    document.title = 'Greek New Testament Reader';
   }
 
   render(props) {
@@ -40,6 +41,5 @@ class App extends Component {
     });
   }
 }
-
 
 export default App;

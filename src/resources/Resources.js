@@ -109,11 +109,3 @@ function parseChapterMorphByVerse(chapterMorph) {
   });
   return morphByVerse;
 }
-
-
-
-
-
-
-
-

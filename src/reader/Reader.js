@@ -10,7 +10,7 @@ function Word(props) {
 
 function Verse(props) {
   const words = props[AppConstants.WORDS]
-    .map(word => <Word form={word[0]} lex={word[2]} morph={word[1]} />);
+    .map((word, index) => <Word form={word[0]} lex={word[2]} morph={word[1]} key={index} />);
   return (
     <div className="verse">
       <span className="verse-number">{props[AppConstants.VERSE]}</span>
@@ -52,14 +52,15 @@ class Reader extends Component {
       passage = passage.map(verse => {
         return (<Verse
           verse={verse[AppConstants.VERSE]}
-          words={verse[AppConstants.WORDS]} />
+          words={verse[AppConstants.WORDS]}
+          key={verse[AppConstants.VERSE]} />
         );
       });
     }
     return (
       <section className="reader">
         <Loader remove={this.state[AppConstants.MORPH]} />
-        <span class="chapter-header">{this.props[AppConstants.CHAPTER]}</span>
+        <span className="chapter-header">{this.props[AppConstants.CHAPTER]}</span>
         {passage}
       </section>
     );
