@@ -62,30 +62,14 @@ nav.header-icons {
 }
 
 .nav-panel {
-  display: block;
-  padding-top: 20px;
-  font-size: 1.8em;
-  line-height: 1.8;
-  width: 30%;
-
-  @media (min-width: $breakpoint-tablet) {
-    font-size: 1em;
-  }
-
-  &.show {
-    display: block;
-  }
 
   .nav-entry {
-    padding: 0 30px 0 70px;
     max-width: 330px;
 
     &.opened {
 
       > a {
         color: #66c4ef;
-
-
         font-weight: 700;
         position: relative;
 
@@ -112,20 +96,8 @@ nav.header-icons {
       }
     }
 
-    @media (min-width: $breakpoint-tablet) {
-      padding: 0 24% 0 30%;
-    }
   }
 
-  a {
-    color: #fff;
-    text-decoration: none;
-    font-family: Georgia, Serif;
-
-    @media (min-width: $breakpoint-tablet) {
-      color: #222;
-    }
-  }
 
   .book-chapters {
     opacity: 0;

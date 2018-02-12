@@ -150,6 +150,8 @@
     // width: 70%;
     margin: 0 auto;
     padding: 1em 0 0.75em;
+    max-width: 620px;
+    margin-left: calc(30% - 20px);
 
     body.nav-panel-open &,
     body.search-panel-show & {

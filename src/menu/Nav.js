@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
+import * as Icons from '../util/Icons.js'
 
 class Nav extends Component {
   render() {
     return (
       <nav className="header-icons">
-        <ul>
-          <li>
-            <i className="icon menu-icon">
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </i>
-          </li>
-        </ul>
       </nav>
     );
   }

@@ -1,13 +1,34 @@
 @import './scss/variables.scss';
 
-.nav-entry {
-  cursor: pointer;
+.nav-panel {
+  $right-margin: 50px;
+  display: block;
+  padding-top: 20px;
+  box-sizing: border-box;
+  line-height: 1.8;
+  font-size: 1em;
+  width: calc(30% - #{$right-margin});
+  margin-right: $right-margin;
 
-  .book-chapters {
-    .chapter {
-      display: inline-block;
-      margin-right: 0.5em;
+  a {
+    color: $dark-1;
+    text-decoration: none;
+    font-family: Georgia, Serif;
+  }
+
+  .nav-entry {
+    padding: 0 30px 0 70px;
+
+    .book {
       cursor: pointer;
+    }
+
+    .book-chapters {
+      .chapter {
+        display: inline-block;
+        margin-right: 0.5em;
+        cursor: pointer;
+      }
     }
   }
 }
