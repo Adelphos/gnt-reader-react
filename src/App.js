@@ -12,7 +12,6 @@ class App extends Component {
       selectedBook: 'MT',
       selectedChapter: 1
     };
-    this.onWindowResize = this.onWindowResize.bind(this);
     this.onBrowsePassage = this.onBrowsePassage.bind(this);
   }
 
